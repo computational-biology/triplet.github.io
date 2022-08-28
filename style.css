@@ -1,0 +1,663 @@
+* {
+      margin: 0;
+}
+
+
+
+h1 a {
+      color: #24c7c1;
+      text-decoration: none;
+}
+
+.button {
+      background-color: #4CAF50;
+      /* Green */
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s;
+      /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      border-radius: 8px;
+}
+
+.button1 {
+      background-color: white;
+      color: black;
+      border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+      background-color: #4CAF50;
+      color: white;
+}
+
+.button1:hover img {
+      filter: invert(100%);
+}
+
+.button2 {
+      background-color: white;
+      color: black;
+      border: 2px solid #008CBA;
+}
+
+.button2:hover {
+      background-color: #008CBA;
+      color: white;
+}
+
+.button2:hover img {
+      filter: invert(100%);
+}
+
+.button3 {
+      background-color: white;
+      color: black;
+      border: 2px solid #f44336;
+}
+
+.button3:hover {
+      background-color: #f44336;
+      color: white;
+}
+
+.button3:hover img {
+      filter: invert(100%);
+}
+
+/* Style the tab Verticalal*/
+.tab2 {
+      float: left;
+      border: none;
+      background-color: #f1f1f1;
+      width: 20%;
+      height: 550px;
+}
+
+/* Style the buttons inside the tab */
+.tab2 button {
+      display: block;
+      background-color: inherit;
+      color: black;
+      padding: 22px 16px;
+      width: 100%;
+      border: none;
+      outline: none;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 20px;
+}
+
+/* Change background color of buttons on hover */
+.tab2 button:hover {
+      background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab2 button.active {
+      background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcont {
+      float: left;
+      padding: 0px 12px;
+      border: none;
+      width: 75%;
+      border-left: none;
+      height: 550px;
+      overflow: auto;
+
+}
+
+
+/* Style the tab Horozontal*/
+.tabbtn {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f3f3f3;
+      font-size: 17px;
+}
+
+/* Style the buttons inside the tab */
+.tabbtn button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 22px;
+}
+
+/* Change background color of buttons on hover */
+.tabbtn button:hover {
+      background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tabbtn button.active {
+      color: white;
+      background-color: #4CAF50;
+}
+
+/* Style the tab content */
+.tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+      text-align: justify;
+      text-justify: inter-word;
+      height: 550px;
+      overflow: auto;
+}
+
+
+.tabcontent li a:link,
+li a:visited {
+      color: #1E90FF;
+      text-align: left;
+      text-decoration: none;
+      display: inline-block;
+}
+
+.tabcontent a:hover,
+a:active {
+      color: gray;
+}
+
+.grayscale {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%);
+}
+
+
+
+
+.sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #000;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+      opacity: 0.5;
+      filter: alpha(opacity=50);
+}
+
+.sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #1E90FF;
+      display: block;
+      transition: 0.3s;
+}
+
+.sidenav a:hover {
+      color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+      .sidenav {
+	    padding-top: 15px;
+      }
+
+      .sidenav a {
+	    font-size: 18px;
+      }
+}
+
+a.tooltips {
+      border-bottom: 1px dotted #1E90FF;
+      color: #1E90FF;
+      outline: none;
+      cursor: help;
+      text-decoration: none;
+      position: relative;
+}
+
+a.tooltips span {
+      margin-left: -999em;
+      position: absolute;
+}
+
+a.tooltips:hover span {
+      /*font-family: Calibri, Tahoma, Geneva, courier;*/
+      text-align: left;
+      position: absolute;
+      color: #232323;
+      top: -2em;
+      z-index: 99;
+      margin-left: 0;
+      width: 140px;
+      border-radius: 5px 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+
+}
+
+
+
+textarea {
+      font-family: Calibri, Tahoma, Geneva, courier;
+      font-size: 18px;
+}
+
+.tablehelp {
+      width: 300px;
+      border: 2px solid #00FF00;
+      word-wrap: break-word;
+}
+
+
+.tablemain {
+      border: none;
+      border-collapse: collapse;
+      padding: 5px;
+}
+
+.tablemain_td {
+      border-left: 2px solid #B0B0B0;
+      border-top: 2px solid #B0B0B0;
+      padding: 10px 40px;
+}
+
+.tablemain_td_first_child {
+      border-left: 2px solid #B0B0B0;
+      border-top: 2px solid #B0B0B0;
+      padding: 10px 40px;
+      border-left: 10px;
+      text-align: right;
+}
+
+/*  table td:first-child { border-left: none; text-align:right;}  */
+
+
+input[type=text],
+[type=email] {
+      width: 100%;
+      padding: 6px 10px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      outline: none;
+}
+
+input[type=text]:focus,
+[type=email]:focus {
+      border: 2px solid #555;
+}
+
+/* popup starts*/
+
+.popup {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+
+}
+
+/* The actual popup */
+.popup .popuptext {
+      visibility: hidden;
+      width: 0px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 0px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 120%;
+      left: 0%;
+      margin-left: -35px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      margin-left: -0px;
+      border-width: 0px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+      visibility: visible;
+      -webkit-animation: fadeIn 1s;
+      animation: fadeIn 1s;
+}
+
+@-webkit-keyframes fadeIn {
+      from {
+	    opacity: 0;
+      }
+
+      to {
+	    opacity: 1;
+      }
+}
+
+@keyframes fadeIn {
+      from {
+	    opacity: 0;
+      }
+
+      to {
+	    opacity: 1;
+      }
+}
+
+/*End of popup */
+
+/*For Image Zoom */
+.imagezoom {
+      padding: 0px;
+      background-color: white;
+      transition: transform .2s;
+      /* Animation */
+      margin: 0 auto;
+}
+
+.imagezoom:hover {
+      transform: scale(3.5);
+      /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+/*End of Image Zoom */
+
+
+
+
+.ulnavi {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #e7e7e7;
+      background-color: #f3f3f3;
+}
+
+.linavi {
+      float: left;
+      border-right: 1px solid #bbb;
+ 
+}
+.abc{
+      color: #700409;
+}
+.linavi a {
+      display: block;
+      color:  #065daf;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+}
+
+.linavi a:hover:not(.active) {
+      background-color: #ddd;
+}
+
+.linavi a.active {
+      color: white;
+      background-color:#4CAF50;
+}
+
+.linavi:last-child {
+      border-right: none;
+}
+
+
+.ultopnavi {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      color:white;
+      font-size: 15px;
+}
+
+.litopnavi {
+      float: left;
+      border-right: 1px solid #7a7b7c;
+      background-color: #084e69;
+      color:white;
+}
+
+.litopnavi a {
+      display: block;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+      color:white;
+}
+.litopnavi a:visited {
+      display: block;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+      color:white;
+}
+
+.litopnavi a:hover:not(.active) {
+
+      color: #01396d;
+}
+
+.litopnavi a.active {
+      color:#01396d;
+      background-color:#85c4e4;
+}
+
+.litopnavi:last-child {
+      border-right: none;
+}
+
+
+
+
+.ulsotwarenavi {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 5px solid #084e69;
+      background-color: #084e69;
+      color:white;
+      font-size: 15px;
+}
+
+.lisotwarenavi {
+      float: left;
+      border-right: 1px solid #7a7b7c;
+      background-color: #084e69;
+      color:white;
+}
+
+.lisotwarenavi a {
+      display: block;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+      color:white;
+}
+.lisotwarenavi a:visited {
+      display: block;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+      color:white;
+}
+
+.lisotwarenavi a:hover:not(.active) {
+      background-color: white;
+      color: #01396d;
+}
+
+.lisotwarenavi a.active {
+      color:#01396d;
+      background-color:#85c4e4;
+}
+
+.lisotwarenavi:last-child {
+      border-right: none;
+}
+
+
+
+.ultriplet {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+
+      background-color: #bdbdbd;
+      color:#0bacb8;
+      font-size: 15px;
+}
+
+.litriplet {
+      float: left;
+      border-right: 2px solid #252627;
+      background-color: #bdbdbd;
+      color:black;
+}
+
+.litriplet a{
+      display: block;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+      color:black;
+}
+
+.litriplet a:visited{
+      display: block;
+      text-align: center;
+      padding: 6px 16px;
+      text-decoration: none;
+      color:black;
+}
+
+
+
+.litriplet a:hover:not(.active) {
+      background-color: white;
+      color: #692525;
+}
+
+.litriplet a.active {
+      color:#f9fbfc;
+      background-color:#0b191f;
+}
+
+.litriplet:last-child {
+      border-right: none;
+}
+
+
+
+
+
+.divhelp {
+      background-color: beige;
+      color: #2686aa;
+      font-size: 20px;
+      text-align: justify;
+      padding: 25px;
+}
+
+.divquestion {
+      background-color: cornsilk;
+      color: #2686aa;
+      font-size: 20px;
+      text-align: left;
+      padding: 10px;
+}
+
+.divanswer {
+      background-color: white;
+      color: black;
+      font-size: 20px;
+      text-align: justify;
+      padding: 5px;
+}
+
+.pretype {
+      font-size: 15px;
+      background-color: floralwhite;
+}
+
+
+.largercheckbox {
+
+      transform: scale(1.5);
+      text-align: center;
+}
+
+
+
+
+
+
+
+.outputtable {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      border-collapse: collapse;
+      width: 100%;
+}
+
+.outputtable td,
+.outputtable th {
+      border: 1px solid #ddd;
+      padding: 8px;
+}
+
+.outputtable tr:nth-child(even) {
+      background-color: #f2f2f2;
+}
+
+.outputtable tr:hover {
+      background-color: #ddd;
+}
+
+.outputtable th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #087608;
+      color: white;
+}
