@@ -13,39 +13,97 @@
 		  </div>
 		  <nav class="tabmenu">
 			<ul>
-			      <li><a href="index.html">HOME</a></li>
-			      <li class="selected"><a href="blog.html">BLOG</a></li>
-			      <li><a href="">INVENTIONS</a></li>
-			      <li><a href="">RECIPES</a></li>
-			      <li><a href="">LOCATIONS</a></li>
+			      <li><a href="index.html">Home</a></li>
+			      <li class="selected" ><a href="#" id="querytab">Query</a></li>
+			      <li><a href="">Help Center</a></li>
+			      <li><a href="">Downloads</a></li>
 			</ul>
 		  </nav>
 		  <div id="tableContainer">
 			<div id="tableRow">
 			      <div id="sidebar">
 				    <form onSubmit="show_trip_details(); return false;">
-					  <input type="text" id="accn">
-					  <select name="fitstres">
-						<option value="AA"> AA</option>
-						<option value="cooperS">AC</option>
-						<option value="convertible">AU</option>
-					  </select>
-					  <select id="restres">
-						<option value="NUC">NUC</option>
-						<option value="PHP">PHP</option>
-					  </select>
+					  <label for="accn">Accn No  :</label>
+					  <input type="text" id="accn" style="width: 60px;" placeholder="accn" minlength="4" maxlength="4">
+					  <br>
+					  <br>
+
+					  <label for="tripname">Trip Name:</label>
+					  <input type="text" id="tripname" style="width: 60px;text-transform:uppercase;" oninput="this.value = this.value.toUpperCase();" placeholder="AGA... etc." minlength="3" maxlength="3">
+					  <br>
+					  <br>
+					  
+					  <fieldset>
+						<legend>Basepair betn. 1--2</legend>
+						<label for="edge1">Basepair:</label>
+						<select id="edge1">
+						      <option value="ALL">All BP</option>
+						      <option value="WW">WW</option>
+						      <option value="WH">WH</option>
+						      <option value="WS">WS</option>
+						      <option value="HW">HW</option>
+						      <option value="HH">HH</option>
+						      <option value="HS">HS</option>
+						      <option value="SW">SW</option>
+						      <option value="SH">SH</option>
+						      <option value="SS">SS</option>
+						</select>
+						<br>
+						<fieldset id="orien1">
+						      <legend>Orientation</legend>
+						      <input type="radio" id="allorient1" name="orient1" value="all" checked="Checked">
+						      <label for="allorient1">All</label><br>
+						      <input type="radio" id="cis1" name="orient1" value="C">
+						      <label for="cis1">Cis</label><br>
+						      <input type="radio" id="trans1" name="orient1" value="T">
+						      <label for="trans1">Trans</label><br>
+						</fieldset>
+					  </fieldset>
+					  <br><br>
+					  <fieldset>
+						<legend>Basepair betn. 2--3</legend>
+						<label for="edge2">Basepair:</label>
+						<select id="edge2">
+						      <option value="ALL">All BP</option>
+						      <option value="W:W">WW</option>
+						      <option value="W:H">WH</option>
+						      <option value="W:S">WS</option>
+						      <option value="H:W">HW</option>
+						      <option value="H:H">HH</option>
+						      <option value="H:S">HS</option>
+						      <option value="S:W">SW</option>
+						      <option value="S:H">SH</option>
+						      <option value="S:S">SS</option>
+						</select>
+						<br>
+						<br>
+
+						<fieldset id="orien2">
+						      <legend>Orientation</legend>
+						      <input type="radio" id="allorient2" name="orient2" value="all" checked="Checked">
+						      <label for="allorient2">All</label><br>
+						      <input type="radio" id="cis2" name="orient2" value="C">
+						      <label for="cis2">Cis</label><br>
+						      <input type="radio" id="trans2" name="orient2" value="T">
+						      <label for="trans2">Trans</label><br>
+						</fieldset>
+					  </fieldset>
+
+					  <br>
+					  <br>
+					  <br>
 					  <input type="submit">
 				    </form>
+
 			      </div>
 			      <div id="main">
-				    <p id="jsontest"></p>
-				    Sit dicta vero alias delectus voluptatem perspiciatis. Dolores ut enim nostrum sunt rem. Voluptas in quibusdam sunt dignissimos minus similique Culpa pariatur excepturi explicabo ratione laborum quis nostrum! Deserunt voluptatem.
-				    Sit dicta vero alias delectus voluptatem perspiciatis. Dolores ut enim nostrum sunt rem. Voluptas in quibusdam sunt dignissimos minus similique Culpa pariatur excepturi explicabo ratione laborum quis nostrum! Deserunt voluptatem.
-				    Sit dicta vero alias delectus voluptatem perspiciatis. Dolores ut enim nostrum sunt rem. Voluptas in quibusdam sunt dignissimos minus similique Culpa pariatur excepturi explicabo ratione laborum quis nostrum! Deserunt voluptatem.
-				    Sit dicta vero alias delectus voluptatem perspiciatis. Dolores ut enim nostrum sunt rem. Voluptas in quibusdam sunt dignissimos minus similique Culpa pariatur excepturi explicabo ratione laborum quis nostrum! Deserunt voluptatem.
-				    Sit dicta vero alias delectus voluptatem perspiciatis. Dolores ut enim nostrum sunt rem. Voluptas in quibusdam sunt dignissimos minus similique Culpa pariatur excepturi explicabo ratione laborum quis nostrum! Deserunt voluptatem.
-				    Sit dicta vero alias delectus voluptatem perspiciatis. Dolores ut enim nostrum sunt rem. Voluptas in quibusdam sunt dignissimos minus similique Culpa pariatur excepturi explicabo ratione laborum quis nostrum! Deserunt voluptatem.
+				    <h1>The result display area</h1>
+				    <p id="jsontest" style="background-color:white; font-family:'Lucida Console', monospace"></p>
 
+			      </div>
+			      <div id="jsmolbar">
+				    <div id="appdiv">
+				    </div>
 			      </div>
 			</div>
 		  </div>
@@ -53,7 +111,29 @@
 			Sit officiis vel ipsum soluta error. Voluptas aliquam ducimus aspernatur itaque dolor Laudantium tenetur eum voluptas sit quo Ex id maxime saepe tenetur exercitationem, nostrum error Illo commodi eum consequuntur.
 		  </div>
 	    </div>
+	    <div id="myModal" class="modal">
+
+		  <!-- Modal content starts -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h2>Please confirm which type do you want?</h2>
+			</div>
+			<div class="modal-body">
+			      <p>If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
+			      <p>Some other text...</p>
+			</div>
+			<div class="modal-footer">
+			      <h3>Modal Footer</h3>
+			</div>
+		  </div>
+		  <!-- Modal content ends -->
+
+	    </div>
+	    <script src="script/styles.js"></script>
 	    <script src="script/allt1.js"></script>
 	    <script src="script/triplet.js"></script>
+	    <script type="text/javascript" src="script/JSmol.min.js"></script>
+	    <script  src="script/jmolrun.js"></script>
       </body>
 </html>
