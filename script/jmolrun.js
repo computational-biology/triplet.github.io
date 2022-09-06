@@ -37,7 +37,7 @@
 		  isSigned: true,
 	//	  script: "set zoomlarge false;set antialiasDisplay;load data/1a9n.pdb",
 	      script: "set zoomlarge false;set antialiasDisplay;  load ="+accn+".cif; cartoon on; wireframe off; color red; spacefill off; "+selector+"; color white",
-		  serverURL: "http://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
+		  serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
 		  readyFunction: jmol_isReady,
 		  disableJ2SLoadMonitor: true,
 		  disableInitialConsole: true,
