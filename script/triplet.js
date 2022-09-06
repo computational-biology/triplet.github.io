@@ -18,7 +18,7 @@ function show_trip_details(){
       var accnval = document.getElementById("accn").value;
       var tripnameval = document.getElementById("tripname").value;
       var edge1 = document.getElementById("edge1").value;
-      var ori1 = document.getElementById("orien1");
+      var ori1 = document.getElementsByName("orient1");
       var orival1;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
@@ -42,6 +42,10 @@ function show_trip_details(){
 		  if((accnval.length === 0 || tripdata[i].accn === accnval)  
 			&& 
 			(tripnameval.length === 0 || tripdata[i].tripname === tripnameval)
+			&&
+			(edge1 === "ALL" || tripdata[i].bpname1.substr(0,3) === edge1)
+			&&
+			(orival1 === "all"|| orival1 === tripdata[i].bpname1.substr(3,1))
 			&&
 			(edge2 === "ALL" || tripdata[i].bpname23.substr(0,3) === edge2)
 			&&
