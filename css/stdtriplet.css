@@ -1,11 +1,14 @@
+body{
+      background-color: #888;
+}
 #allcontent {
       width: 1250px;
       padding-top: 5px;
       padding-bottom: 5px;
-      background-color: #675c47;
+      background-color: #eaeef0;
       margin-left: auto;
       margin-right: auto;
-      color: #675c47;
+      color: #073e4e;
 }
 div#tableContainer {
       display: table;
@@ -18,18 +21,18 @@ div#tableRow {
 
 #main {
       display: table-cell;
-      background: #efe5d0;
-      font-size: 105%;
+      background-color: #ffffff;
+      font-size: 100%;
       padding: 15px;
       vertical-align: top;
-      width:40%;
+      width:38%;
 }
 
 #sidebar {
       display: table-cell;
-      background: #efe5d0;
+      background:#d1d1d1;
       font-size: 105%;
-      padding: 15px;
+      padding: 5px;
       vertical-align: top;
       width:20%;
 }
@@ -37,27 +40,29 @@ div#tableRow {
 
 #jsmolbar {
       display: table-cell;
-      background: #efe5d0;
+      background: #fcfcfc;
       font-size: 105%;
       padding: 15px;
       vertical-align: top;
-      width:40%;
+      width:38%;
 }
 
 #header {
-      background-color: #675c47;
+      background-color: #eaeef0;
       margin: 10px 10px 0px 10px;
       height: 108px;
-      color: #efe5d0;
+      color: #01383f;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #footer {
-      background-color: #675c47;
-      color: #efe5d0;
+      background-color: #096c79;
+      color: #fdfdfd;
       text-align: center;
       padding: 15px;
-      margin: 0px 10px 10px 10px;
-      font-size: 90%;
+      margin: 0px 5px 5px 5px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 70%;
 }
 
 #resulttable, th, td {
@@ -77,34 +82,37 @@ form label, legend{
 }
 
 nav {
-      background-color: #efe5d0;
+      font-size: 80%;
+      background-color:#096c79;
+      color:white;
       margin: 10px 10px 0px 10px;
 }
 nav ul {
       margin: 0px;
       list-style-type: none;
-      padding: 5px 0px 5px 0px;
+      padding: 5px 5px 5px 5px;
 }
 nav ul li {
+      border-right: 2px solid black;
       display: inline;
       padding: 5px 10px 5px 10px;
 }
 nav ul li a:link, nav ul li a:visited {
-      color: #954b4b;
+      color: #FFFFFF;
       border-bottom: none;
       font-weight: bold;
 }
 nav li:hover:not(.active) {
-      background-color: #c8b99c;
+      background-color: #223335;
 }
 nav ul li.selected {
-      background-color: #c8b99c;
+      background-color: #223335;
 }
 form {
       display: table;
       padding: 10px;
-      border: thin dotted #7e7e7e;
-      background-color: #e1ceb8;
+      border: thin dotted #d1d1d1;
+      background-color: #d1d1d1;
 }
 
 
@@ -159,17 +167,17 @@ form {
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #675c47;
+  background-color: #096c79;
   color: white;
 }
 
 .modal-body {
   padding: 2px 16px;
   color: efe5d0;
-            }
+}
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: #675c47;
+  background-color: #096c79;
   color: white;
 }

@@ -1,40 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-      <meta charset="UTF-8">
-      <title>
-	    This is fascinating.
-      </title>
-      <script>
-	    const fileSelector = document.getElementById('file-selector');
-	    fileSelector.addEventListener('change', (event) => {
-		  const fileList = event.target.files;
-		  console.log(fileList);
-	    });
-      </script>
-      <script>
-	    function temperatureConverter(valNum) {
-		  valNum = parseFloat(valNum);
-		  x = prompt("What is a pointer:", "variable");
-		  document.getElementById("outputCelsius").innerHTML = (valNum-32) / 1.8;
-	    } 
+      <head>
+	    <meta charset="UTF-8">
+	    <title>RNA Triplets</title>
+	    <link rel="stylesheet" href="css/index.css">
+      </head>
 
-      </script>
-</head>
-<body>
-      <div>
-	    <p>
-	    <label>Triplet Type</label>
-	    <input list="browsers">
+      <body>
+	    <div id="allcontent"> 
+		  <div id="header" style="text-align: center;">
+			<center>
+			      <div style="background:#00080c">
 
-	    <datalist id="browsers">
-		  <option value="Internet Explorer">
-		  <option value="Firefox">
-		  <option value="Google Chrome">
-		  <option value="Opera">
-		  <option value="Safari">
-	    </datalist>
-	    </p>
-      </div>
-</body>
+				    <table>
+					  <tr>
+						<td width=10% style="justify-content: left">
+						      <img src="img/dnahelix1.png" alt="" width="100" height="200" style="vertical-align:middle">
+						</td>
+						<td width=80% style="text-align: center">
+
+
+						      <h1 style="color:#1c91c7; align-content: center; font-size: 40px; " > RNA Triplets</h1>
+						      <h2 style="color:#45ce39" >A Web Treaser of Biological Information</h2>
+						      <h1 style="color:#e2c12cdc" >A Structural Molecular Biological Approach</h1>
+						</td>
+						<td width=10% style="justify-content: right">
+
+
+						      <img src="img/dnahelix2.png" alt="" width="100" height="200" style="vertical-align:middle">
+						</td>
+					  </tr>
+				    </table>
+
+				    <br>
+			      </div>
+
+			</center>
+		  </div>
+		  <nav class="tabmenu">
+			<ul>
+			      <li class="selected"><a href="index.html">Home</a></li>
+			      <li><a href="stdtriplet.html">Standars Triplets</a></li>
+			      <li><a href="">C-H...O/N Triplets</a></li>
+			      <li><a href="">Protonated Triplets</a></li>
+			      <li><a href="">Triplets with Modified Res</a></li>
+			      <li><a href="">Help Center</a></li>
+			      <li><a href="">Downloads</a></li>
+			</ul>
+		  </nav>
+		  <div id="tableContainer">
+			<div id="tableRow">
+
+			      <div id="main">
+				    <h2>A Brief Introduction</h2>
+				    <p class="mainpara">Consectetur voluptate earum tenetur repellat repellat. Nulla possimus aut doloremque ducimus ipsum Aperiam facilis porro incidunt labore veniam earum. Itaque doloribus harum dolore illum magni, sed Eos assumenda dolorum mollitia
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    </p>
+				    <h2>Some Technicalities</h2>
+				    <p class="mainpara">Consectetur voluptate earum tenetur repellat repellat. Nulla possimus aut doloremque ducimus ipsum Aperiam facilis porro incidunt labore veniam earum. Itaque doloribus harum dolore illum magni, sed Eos assumenda dolorum mollitia
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    Adipisicing repellat corporis quos accusantium voluptatem Aut dolores officiis atque totam vel doloremque fugiat hic? Consequatur veritatis quasi aliquid neque esse! Magnam temporibus incidunt inventore omnis incidunt Quibusdam vero consequuntur
+				    </p>
+			      </div>
+
+			</div>
+		  </div>
+		  <div id="footer">
+			For technical help, please contact roy.parthajit@gmail.com<br>
+			Maintained through github.
+		  </div>
+	    </div>
+	    <div id="myModal" class="modal">
+
+		  <!-- Modal content starts -->
+		  <div class="modal-content">
+			<div class="modal-header">
+			      <span class="close">&times;</span>
+			      <h4 id="modalheader">Please confirm which type do you want?</h2>
+			</div>
+			<div class="modal-body">
+			      <p id="modalbody">If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
+			</div>
+			<div class="modal-footer">
+			      <h5>Modal Footer</h3>
+			</div>
+		  </div>
+		  <!-- Modal content ends -->
+
+	    </div>
+	    <script src="script/styles.js"></script>
+	    <script src="script/allt1.js"></script>
+	    <script src="script/triplet.js"></script>
+	    <script type="text/javascript" src="script/JSmol.min.js"></script>
+	    <script  src="script/jmolrun.js"></script>
+      </body>
 </html>

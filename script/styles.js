@@ -16,7 +16,7 @@ function modal_disp(i){
     modbody.innerHTML = mainstr;
     modal.style.display = "block";
 }
-var querytab = document.getElementById("querytab");
+//var querytab = document.getElementById("querytab");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
@@ -24,9 +24,9 @@ var span = document.getElementsByClassName("close")[0];
 var linkstd = document.getElementById("linkstd");
 
 // When the user clicks on the button, open the modal
-querytab.onclick = function() {
+/*querytab.onclick = function() {
   modal.style.display = "block";
-}
+}*/
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {

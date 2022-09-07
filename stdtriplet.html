@@ -3,18 +3,23 @@
       <head>
 	    <meta charset="UTF-8">
 	    <title></title>
-	    <link rel="stylesheet" href="css/triplet.css">
+	    <link rel="stylesheet" href="css/stdtriplet.css">
       </head>
 
-      <body style="background-color:lightgray;">
+      <body>
 	    <div id="allcontent"> 
 		  <div id="header" style="text-align: center;">
-			<h1>Triplets in RNA</h1>
+			<h1>Triplets based on Standard RNA base pairs</h1>
+			<p>
+			This page is for query on RNA base pair triplets based on standard nucleic acids.
+			</p>
 		  </div>
 		  <nav class="tabmenu">
 			<ul>
 			      <li><a href="index.html">Home</a></li>
-			      <li class="selected" ><a href="#" id="querytab">Query</a></li>
+			      <li class="selected" ><a href="#">Standars Triplets</a></li>
+			      <li><a href="">C-H...O/N Triplets</a></li>
+			      <li><a href="">Protonated Triplets</a></li>
 			      <li><a href="">Help Center</a></li>
 			      <li><a href="">Downloads</a></li>
 			</ul>
@@ -22,6 +27,7 @@
 		  <div id="tableContainer">
 			<div id="tableRow">
 			      <div id="sidebar">
+			      <p><b>Enter Your Query Here</b></p>
 				    <form onSubmit="show_trip_details(); return false;">
 					  <label for="accn">Accn No  :</label>
 					  <input type="text" id="accn" style="width: 60px;" placeholder="accn" minlength="4" maxlength="4">
@@ -97,13 +103,18 @@
 
 			      </div>
 			      <div id="main">
-				    <h1>The result display area</h1>
-				    <p id="jsontest" style="font-family:'Lucida Console', monospace"></p>
+				    <center>
+					  <h2>The result display area</h2>
+					  <p id="jsontest" style="font-family:'Lucida Console', monospace"></p>
+				    </center>
 
 			      </div>
 			      <div id="jsmolbar">
-				    <div id="appdiv">
+				    <center>
+					  <h2>JSMol Display area</h2>
+					  <div id="appdiv">
 				    </div>
+				    </center>
 			      </div>
 			</div>
 		  </div>
