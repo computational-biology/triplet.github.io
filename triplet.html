@@ -32,7 +32,7 @@
 					  <input type="text" id="tripname" style="width: 60px;text-transform:uppercase;" oninput="this.value = this.value.toUpperCase();" placeholder="AGA... etc." minlength="3" maxlength="3">
 					  <br>
 					  <br>
-					  
+
 					  <fieldset>
 						<legend>Basepair betn. 1--2</legend>
 						<label for="edge1">Basepair:</label>
@@ -98,7 +98,7 @@
 			      </div>
 			      <div id="main">
 				    <h1>The result display area</h1>
-				    <p id="jsontest" style="background-color:white; font-family:'Lucida Console', monospace"></p>
+				    <p id="jsontest" style="font-family:'Lucida Console', monospace"></p>
 
 			      </div>
 			      <div id="jsmolbar">
@@ -117,14 +117,13 @@
 		  <div class="modal-content">
 			<div class="modal-header">
 			      <span class="close">&times;</span>
-			      <h2>Please confirm which type do you want?</h2>
+			      <h4 id="modalheader">Please confirm which type do you want?</h2>
 			</div>
 			<div class="modal-body">
-			      <p>If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
-			      <p>Some other text...</p>
+			      <p id="modalbody">If you want all standard bases for your computations, then <a href="index.html" id="linkstd">click here.</a></p>
 			</div>
 			<div class="modal-footer">
-			      <h3>Modal Footer</h3>
+			      <h5>Modal Footer</h3>
 			</div>
 		  </div>
 		  <!-- Modal content ends -->

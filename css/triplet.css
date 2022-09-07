@@ -60,6 +60,17 @@ div#tableRow {
       font-size: 90%;
 }
 
+#resulttable, th, td {
+      border: 1px solid;
+      font-size: 80%;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+      color:black;
+      background-color:white;
+}
+
 form label, legend{
     font-size: 80%;
     color: black;
@@ -94,6 +105,11 @@ form {
       padding: 10px;
       border: thin dotted #7e7e7e;
       background-color: #e1ceb8;
+}
+
+
+#appdiv{
+     position: fixed;
 }
 
 .modal {
