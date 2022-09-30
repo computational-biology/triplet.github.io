@@ -7,8 +7,8 @@
       </head>
 
       <body>
-	    <div id="allcontent"> 
-		  <div id="header" style="text-align: center;">
+	    <div id="allcontent" style="background:#dbd2c4;"> 
+		  <div id="header" style="text-align: center; background:#dbd2c4;">
 			<h1>Triplets based on Standard RNA base pairs</h1>
 			<p>
 			This page is for query on RNA base pair triplets based on standard nucleic acids.
@@ -17,19 +17,21 @@
 		  <nav class="tabmenu">
 			<ul>
 			      <li><a href="index.html">Home</a></li>
-			      <li class="selected" ><a href="#">Standars Triplets</a></li>
-			      <li><a href="">C-H...O/N Triplets</a></li>
-			      <li><a href="">Sugar O2' Med Triplets</a></li>
-			      <li><a href="">Protonated Triplets</a></li>
-			      <li><a href="">Help Center</a></li>
-			      <li><a href="">Downloads</a></li>
+			      <li ><a href="stdtriplet.html">Standars Triplets</a></li>
+			      <li><a href="chotriplet.html">C-H...O/N Trip</a></li>
+			      <li  class="selected"><a href="#">Protonated Trip</a></li>
+			      <li><a href="modtriplet.html">Trip of Modi Res</a></li>
+			      <li><a href="sugtriplet.html">Sug O2' Med Trip</a></li>
+			      <li><a href="singlepdbtriplet.html">Single PDB Query</a></li>
+			      <li><a href="help.html">Help</a></li>
+			      <li><a href="downloads.html">Downloads</a></li>
 			</ul>
 		  </nav>
 		  <div id="tableContainer">
 			<div id="tableRow">
 			      <div id="sidebar">
 			      <p><b>Enter Your Query Here</b></p>
-				    <form onSubmit="show_trip_details_std('STD'); return false;">
+				    <form onSubmit="show_trip_details_others('PROTO'); return false;">
 					  <label for="accn">Accn No  :</label>
 					  <input type="text" id="accn" style="width: 60px;" placeholder="accn" minlength="4" maxlength="4">
 					  <br>
@@ -114,9 +116,13 @@
 					  <h2>JSMol Display area</h2>
 					  <table style="position:fixed;">
 					        <tr>
+					              <td id="detaildata" style="border:0px;"></td>
+					        </tr>
+					<!--        <tr>
 					              <td id="appdivtrip" style="border:0px;"></td>
 					              <td id="appdiv" style="border:0px;"></td>
 					        </tr>
+					 -->
 					        <tr>
 					              <td colspan="2" id="appdivfull" style="border:0px;"></td>
 					        </tr>

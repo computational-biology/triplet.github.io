@@ -1,5 +1,6 @@
 
       function runjsmol(accn, i, type){
+        show_details(accn, i);
 	    Jmol._isAsync = false;
 
 	    // last update 2/18/2014 2:10:06 PM
