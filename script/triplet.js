@@ -63,8 +63,8 @@ function show_details(accn, i){
       mainstr =  mainstr + "mmCIF residue details ["+tripdata[i].chain1+":"+tripdata[i].resid1+tripdata[i].ins1+", ";
       mainstr =  mainstr + tripdata[i].chain2+":"+tripdata[i].resid2+tripdata[i].ins2+", ";
       mainstr =  mainstr + tripdata[i].chain3+":"+tripdata[i].resid3+tripdata[i].ins3+"]<br> ";
-      mainstr =  mainstr + "Base pair Stability Value for " +tripdata[i].bpname1+  " is "+tripdata[i].eval12 +"<br>";
-      mainstr =  mainstr + "Base pair Stability Value for " +tripdata[i].bpname23+ " is "+tripdata[i].eval23;
+      mainstr =  mainstr + "Base pair Stability Value for " + tripdata[i].resname1 +":"+ tripdata[i].resname1 + "  "+tripdata[i].bpname1+  " is "+tripdata[i].eval12 +"<br>";
+      mainstr =  mainstr + "Base pair Stability Value for " + tripdata[i].resname2 +":"+ tripdata[i].resname3 + "  "+tripdata[i].bpname23+ " is "+tripdata[i].eval23;
       detdata.innerHTML = mainstr;
       }
       
