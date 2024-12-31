@@ -2,6 +2,8 @@
 obj1 = JSON.stringify(tripjsondata);
 
 var tripdata = JSON.parse(obj1);
+var global_download_data = "";
+var global_download_data_header = "accn, trp, res1, bp1 ,res2, bp2 ,res2,   res1_detail  , res1_detail  , res1_detail\n";
 
 //const isUpperCase = (string) => /^[A-Z]*$/.test(string);
 
@@ -89,22 +91,26 @@ function show_details(accn, i){
       var detdata = document.getElementById("detaildata");
       var mainstr = "<strong> Showing The Details of<br>ACCN: "+ accn+"</strong><br>";
       mainstr =  mainstr + "Residue Names="+tripdata[i].resname1+"-"+tripdata[i].resname2+"-"+tripdata[i].resname3+",  <br>";
-      mainstr =  mainstr + "mmCIF residue details ["+tripdata[i].chain1+":"+tripdata[i].resid1+tripdata[i].ins1+", ";
-      mainstr =  mainstr + tripdata[i].chain2+":"+tripdata[i].resid2+tripdata[i].ins2+", ";
-      mainstr =  mainstr + tripdata[i].chain3+":"+tripdata[i].resid3+tripdata[i].ins3+"]<br> ";
-      mainstr =  mainstr + "Base pair Stability Value for " + tripdata[i].resname1 +":"+ tripdata[i].resname1 + "  "+tripdata[i].bpname1+  " is "+tripdata[i].eval12 +"<br>";
+      mainstr =  mainstr + "mmCIF residue details ["+ tripdata[i].resname1 +"-"+tripdata[i].chain1+":"+tripdata[i].resid1+tripdata[i].ins1+", ";
+      mainstr =  mainstr + tripdata[i].resname2 +"-"+ tripdata[i].chain2+":"+tripdata[i].resid2+tripdata[i].ins2+", ";
+      mainstr =  mainstr + tripdata[i].resname3 +"-"+ tripdata[i].chain3+":"+tripdata[i].resid3+tripdata[i].ins3+"]<br> ";
+      mainstr =  mainstr + "Base pair Stability Value for " + tripdata[i].resname1 +":"+ tripdata[i].resname2 + "  "+tripdata[i].bpname1+  " is "+tripdata[i].eval12 +"<br>";
       mainstr =  mainstr + "Base pair Stability Value for " + tripdata[i].resname2 +":"+ tripdata[i].resname3 + "  "+tripdata[i].bpname23+ " is "+tripdata[i].eval23;
       detdata.innerHTML = mainstr;
       }
       
-      
-function show_trip_details_proto(bptype){
+function gen_download_data(i){
+       global_download_data += tripdata[i].accn+", "+tripdata[i].tripname+", " + tripdata[i].resname1+", "+tripdata[i].bpname1+", "+tripdata[i].resname2 +", "+tripdata[i].bpname23+", "+tripdata[i].resname3+ ", [ ( "+tripdata[i].chain1+", "+tripdata[i].resid1+", "+tripdata[i].ins1+" ), ( "+ tripdata[i].chain2+", "+tripdata[i].resid2+", "+tripdata[i].ins2+" ), ( "+tripdata[i].chain3+", "+tripdata[i].resid3+", "+tripdata[i].ins3+" ) ]\n";
+      }
 
+function show_trip_details_proto(bptype){
+      
       var accnval = document.getElementById("accn").value;
       var tripnameval = document.getElementById("tripname").value;
       var edge1 = document.getElementById("edge1").value;
       var ori1 = document.getElementsByName("orient1");
       var orival1;
+      global_download_data = global_download_data_header;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
 		  orival1 = ori1[i].value;
@@ -140,15 +146,18 @@ function show_trip_details_proto(bptype){
 			//str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', ' select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', 'restrict within(15.0, " +tripdata[i].resid1+":"+tripdata[i].chain1+ "); select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Within 15A</a>]" + "</td><td> <a href=\"javascript:void(0);\" onclick=\"modal_disp("+i+");\">Show details</a> </td></tr>";
 
              str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'FULL');\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'WITHIN15A');\">Within 15A</a>]" + "  [<a href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'TRIPLETONLY');\">Triplet Only</a>]</td> <td><a  href=\"javascript:void(0);\" onclick=\"show_details('" + tripdata[i].accn + "', "+ i +");\">Details</a></tr>";
-		     count = count + 1;
+             gen_download_data(i);
+                 count = count + 1;
 		  
 		  }
 
 	    }
       }
       str = str + "</table>";
-      str = "<h3>Total Cases Found:"+count+"</h3>" + str;
+      str = "<h3>Total Cases Found:"+count+"&nbsp;&nbsp;<button id=\"generateBtn\">Download</button></h3>" + str;
+      
       document.getElementById("jsontest").innerHTML = str;
+      add_lintener_to_download_button();
 }
 function show_trip_details_sug(bptype){
 
@@ -157,6 +166,7 @@ function show_trip_details_sug(bptype){
       var edge1 = document.getElementById("edge1").value;
       var ori1 = document.getElementsByName("orient1");
       var orival1;
+      global_download_data = global_download_data_header;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
 		  orival1 = ori1[i].value;
@@ -192,15 +202,18 @@ function show_trip_details_sug(bptype){
 			//str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', ' select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', 'restrict within(15.0, " +tripdata[i].resid1+":"+tripdata[i].chain1+ "); select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Within 15A</a>]" + "</td><td> <a href=\"javascript:void(0);\" onclick=\"modal_disp("+i+");\">Show details</a> </td></tr>";
 
              str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'FULL');\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'WITHIN15A');\">Within 15A</a>]" + "  [<a href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'TRIPLETONLY');\">Triplet Only</a>]</td> <td><a  href=\"javascript:void(0);\" onclick=\"show_details('" + tripdata[i].accn + "', "+ i +");\">Details</a></tr>";
-		     count = count + 1;
+             gen_download_data(i);
+                 count = count + 1;
 		  
 		  }
 
 	    }
       }
       str = str + "</table>";
-      str = "<h3>Total Cases Found:"+count+"</h3>" + str;
+      str = "<h3>Total Cases Found:"+count+"&nbsp;&nbsp;<button id=\"generateBtn\">Download</button></h3>" + str;
+      
       document.getElementById("jsontest").innerHTML = str;
+      add_lintener_to_download_button();
 }
 function show_trip_details_cho(bptype){
 
@@ -209,6 +222,7 @@ function show_trip_details_cho(bptype){
       var edge1 = document.getElementById("edge1").value;
       var ori1 = document.getElementsByName("orient1");
       var orival1;
+      global_download_data = global_download_data_header;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
 		  orival1 = ori1[i].value;
@@ -244,15 +258,18 @@ function show_trip_details_cho(bptype){
 			//str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', ' select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', 'restrict within(15.0, " +tripdata[i].resid1+":"+tripdata[i].chain1+ "); select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Within 15A</a>]" + "</td><td> <a href=\"javascript:void(0);\" onclick=\"modal_disp("+i+");\">Show details</a> </td></tr>";
 
              str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'FULL');\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'WITHIN15A');\">Within 15A</a>]" + "  [<a href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'TRIPLETONLY');\">Triplet Only</a>]</td> <td><a  href=\"javascript:void(0);\" onclick=\"show_details('" + tripdata[i].accn + "', "+ i +");\">Details</a></tr>";
-		     count = count + 1;
+                 gen_download_data(i);
+                 count = count + 1;
 		  
 		  }
 
 	    }
       }
       str = str + "</table>";
-      str = "<h3>Total Cases Found:"+count+"</h3>" + str;
+      str = "<h3>Total Cases Found:"+count+"&nbsp;&nbsp;<button id=\"generateBtn\">Download</button></h3>" + str;
+      
       document.getElementById("jsontest").innerHTML = str;
+      add_lintener_to_download_button();
 }
 function show_trip_details_mod(bptype){
 
@@ -261,6 +278,7 @@ function show_trip_details_mod(bptype){
       var edge1 = document.getElementById("edge1").value;
       var ori1 = document.getElementsByName("orient1");
       var orival1;
+      global_download_data = global_download_data_header;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
 		  orival1 = ori1[i].value;
@@ -296,15 +314,17 @@ function show_trip_details_mod(bptype){
 			//str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', ' select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', 'restrict within(15.0, " +tripdata[i].resid1+":"+tripdata[i].chain1+ "); select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Within 15A</a>]" + "</td><td> <a href=\"javascript:void(0);\" onclick=\"modal_disp("+i+");\">Show details</a> </td></tr>";
 
              str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'FULL');\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'WITHIN15A');\">Within 15A</a>]" + "  [<a href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'TRIPLETONLY');\">Triplet Only</a>]</td> <td><a  href=\"javascript:void(0);\" onclick=\"show_details('" + tripdata[i].accn + "', "+ i +");\">Details</a></tr>";
-		     count = count + 1;
+             gen_download_data(i);
+                 count = count + 1;
 		  
 		  }
 
 	    }
       }
       str = str + "</table>";
-      str = "<h3>Total Cases Found:"+count+"</h3>" + str;
+      str = "<h3>Total Cases Found:"+count+"&nbsp;&nbsp;<button id=\"generateBtn\">Download</button></h3>" + str;
       document.getElementById("jsontest").innerHTML = str;
+      add_lintener_to_download_button();
 }
 
 
@@ -316,6 +336,7 @@ function show_trip_details_single(bptype){
       var edge1 = document.getElementById("edge1").value;
       var ori1 = document.getElementsByName("orient1");
       var orival1;
+      global_download_data = global_download_data_header;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
 		  orival1 = ori1[i].value;
@@ -351,15 +372,18 @@ function show_trip_details_single(bptype){
 			//str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', ' select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', 'restrict within(15.0, " +tripdata[i].resid1+":"+tripdata[i].chain1+ "); select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Within 15A</a>]" + "</td><td> <a href=\"javascript:void(0);\" onclick=\"modal_disp("+i+");\">Show details</a> </td></tr>";
 		     
              str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'FULL');\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'WITHIN15A');\">Within 15A</a>]" + "  [<a href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'TRIPLETONLY');\">Triplet Only</a>]</td> <td><a  href=\"javascript:void(0);\" onclick=\"show_details('" + tripdata[i].accn + "', "+ i +");\">Details</a></tr>";
-		     count = count + 1;
+             gen_download_data(i);
+                 count = count + 1;
 		  
 		  }
 
 	    }
       }
       str = str + "</table>";
-      str = "<h3>Total Cases Found:"+count+"</h3>" + str;
+      str = "<h3>Total Cases Found:"+count+"&nbsp;&nbsp;<button id=\"generateBtn\">Download</button></h3>" + str;
+      
       document.getElementById("jsontest").innerHTML = str;
+      add_lintener_to_download_button();
 }
 
 
@@ -370,6 +394,7 @@ function show_trip_details_std(bptype){
       var edge1 = document.getElementById("edge1").value;
       var ori1 = document.getElementsByName("orient1");
       var orival1;
+      global_download_data = global_download_data_header;
       for(var i = 0; i < ori1.length; i++){
 	    if(ori1[i].checked === true){
 		  orival1 = ori1[i].value;
@@ -386,6 +411,8 @@ function show_trip_details_std(bptype){
       }
 //      window.alert(orival2);
 //      var ori2 = document.getElementByName("orient2").value;
+
+      
       var str = "<table id=\"resulttable\"><tr><td>ACCN</td><td>TRP</td><td>EDG1-EDG2</td><td>  View in JsMol</td><td>Detail Only</td></tr>";
         var count = 0;
       for(var i=0; i<tripdata.length; ++i){
@@ -405,13 +432,42 @@ function show_trip_details_std(bptype){
 			//str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', ' select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', 'restrict within(15.0, " +tripdata[i].resid1+":"+tripdata[i].chain1+ "); select " +tripdata[i].resid1+":"+tripdata[i].chain1+","+tripdata[i].resid2+":"+tripdata[i].chain2+","+tripdata[i].resid3+":"+tripdata[i].chain3+"' );\">Within 15A</a>]" + "</td><td> <a href=\"javascript:void(0);\" onclick=\"modal_disp("+i+");\">Show details</a> </td></tr>";
 		     
              str = str + "<tr><td>"+tripdata[i].accn + "</td><td>" + tripdata[i].tripname + " </td><td>  " + tripdata[i].edgeinfo + " </td><td> [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'FULL');\">Full</a>]       [<a  href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'WITHIN15A');\">Within 15A</a>]" + "  [<a href=\"javascript:void(0);\" onclick=\"runjsmol('" + tripdata[i].accn + "', "+ i +", 'TRIPLETONLY');\">Triplet Only</a>]</td> <td><a  href=\"javascript:void(0);\" onclick=\"show_details('" + tripdata[i].accn + "', "+ i +");\">Details</a></tr>";
-		     count = count + 1;
+                  gen_download_data(i);
+                  count = count + 1;
 		  
 		  }
 
 	    }
       }
       str = str + "</table>";
-      str = "<h3>Total Cases Found:"+count+"</h3>" + str;
+      str = "<h3>Total Cases Found:"+count+"&nbsp;&nbsp;<button id=\"generateBtn\">Download</button></h3>" + str;
       document.getElementById("jsontest").innerHTML = str;
+      add_lintener_to_download_button();
+
 }
+
+function add_lintener_to_download_button(){
+      // This part is for adding the code for download button.
+
+         document.getElementById("generateBtn").addEventListener("click", function () {
+            // Get the data from the textarea
+            
+
+            // Create a Blob object with the data
+            const blob = new Blob([global_download_data], { type: "text/plain" });
+
+            // Generate a URL for the Blob
+            const url = URL.createObjectURL(blob);
+
+            // Create a hidden <a> element to trigger the download
+            const downloadLink = document.createElement("a");
+            downloadLink.href = url;
+            downloadLink.download = `triplet-data-${Date.now()}.txt`; // File name
+
+            // Programmatically click the link
+            downloadLink.click();
+
+            // Revoke the Blob URL after the download starts
+            URL.revokeObjectURL(url);
+        });
+      }
